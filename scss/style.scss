@@ -1,0 +1,60 @@
+@import '_variables.scss';
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: $black;
+
+    background: #f8f8f8;
+}
+
+.container {
+    width: 100%;
+    max-width: 1230px;
+}
+
+.btn {
+    display: inline-block;
+
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btn--outline {
+    background: none;
+
+    border: 2px solid #fff;
+    border-radius: 7px;
+
+    transition: all .1s linear;
+
+    &:hover {
+        background: #fff;
+    }
+}
+
+.btn--black {
+    width: 100px;
+    height: 35px;
+    padding: 10px;
+
+    font-size: 12px;
+    color: #fff;
+
+    border-radius: 5px;
+
+    background: #222;
+
+    transition: all .3s linear;
+
+    &:hover {
+        background: #fff;
+        color: #222;
+    }
+}
+
+@import '_header.scss';
+@import '_intro.scss';
+@import '_post.scss';

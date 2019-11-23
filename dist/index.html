@@ -5,12 +5,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Open+Sans:400,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Document</title>
+  <title>Home</title>
 </head>
 
-<body>
-  <h1>Hello World!</h1>
+<body class="mb-5">
+
+  <!-- header -->
+  <div class="header">
+    <div class="container">
+      <div class="header__logo">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/header__logo.png" alt="logo">
+        </a>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Others</a>
+            </li>
+          </ul>
+          <form class="form-inline">
+            <div class="input-group md-form mt-0 mb-0 form-sm form-2">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <span class="input-group-text rounded-right lighten-3" id="basic-text1"><i
+                    class="fas fa-search text-grey" aria-hidden="true"></i></span>
+              </div>
+          </form>
+        </div>
+
+      </div>
+    </nav>
+    <!--/.Navbar-->
+  </div>
+  <!-- /.header -->
+
+  <!-- intro -->
+  <section class="intro">
+    <div class="container-fluid">
+      <div class="intro__content">
+        <h1 class="intro__title">Visual Speak Louder</h1>
+        <p class="intro__text">This is an example of a WordPress post, you could edit this to put information about
+          yourself or your site so readers know where you are coming from. You can create as many posts as you like in
+          order to share with your readers what is on your mind.</p>
+        <a class="btn btn--outline" href="#">Read More</a>
+      </div>
+    </div>
+  </section>
+  <!-- /.intro -->
+
+  <!-- home__content -->
+  <div class="home__content mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 posts">
+
+          <div class="post">
+            <img src="assets/img/posts/1_small.jpg" class="img-fluid" alt="post__photo">
+
+            <div class="post__content">
+              <div class="post__title">Sangar Slider Demo</div>
+
+              <div class="post__info">
+                <div class="post__date">July 1, 2014</div>
+                <div class="post__author">Admin Mino</div>
+                <div class="post__comments-quantity">No Comments</div>
+                <div class="post__category">Posted in <span>Traveling</span></div>
+              </div>
+
+              <p class="post__description">This is an example of a WordPress post, you could edit this to put
+                information about yourself or your site so readers know where you are coming from. You can create as
+                many posts as you like in order to share with your readers what is on your mind.
+              </p>
+
+              <a class="btn btn--black" href="#">Read More</a>
+            </div>
+          </div>
+
+          <div class="post">
+            <img src="assets/img/posts/2_small.jpg" class="img-fluid" alt="post__photo">
+
+            <div class="post__content">
+              <div class="post__title"> Travelling with Love</div>
+
+              <div class="post__info">
+                <div class="post__date">July 1, 2014</div>
+                <div class="post__author">Admin Mino</div>
+                <div class="post__comments-quantity">No Comments</div>
+                <div class="post__category">Posted in <span>Traveling</span></div>
+              </div>
+
+              <p class="post__description">This is an example of a WordPress post, you could edit this to put
+                information about yourself or your site so readers know where you are coming from. You can create as
+                many posts as you like in order to share with your readers what is on your mind.
+              </p>
+
+              <a class="btn btn--black" href="#">Read More</a>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.posts -->
+        <div class="col-md-3 sidebar">3</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- /.home__content -->
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
+  </script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js">
+  </script>
 </body>
 
 </html>
