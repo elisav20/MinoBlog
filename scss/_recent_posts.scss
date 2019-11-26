@@ -1,0 +1,32 @@
+.recent__posts {
+    margin-bottom: 25px;
+    padding-left: 15px;
+
+    h4 {
+        font-size: 12px;
+        font-weight: 700;
+        color: $blue;
+        text-transform: uppercase;
+    }
+
+    .recent__post-info {
+        padding: 15px 0;
+        border-bottom: 2px solid #eee;
+
+        .recent__post-title {
+            margin-bottom: 5px;
+
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: $black;
+        }
+
+        .recent__post-date {
+            font-size: 10px;
+            font-weight: 700;
+            color: $silver;
+            text-transform: uppercase;
+        }
+    }
+}
