@@ -22,3 +22,17 @@
         }
     }
 }
+
+.category__select {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $blue;
+
+    span {
+        font-size: 18px;
+        color: $black;
+    }
+}
