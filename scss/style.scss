@@ -3,6 +3,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
+    line-height: 1.5;
     color: $black;
 }
 
@@ -62,4 +63,5 @@ body {
 @import 'post.scss';
 @import 'recent_posts.scss';
 @import 'category.scss';
-@import 'comments.scss'
+@import 'comments.scss';
+@import 'footer.scss';

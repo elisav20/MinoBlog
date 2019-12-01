@@ -8,6 +8,12 @@
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid #eee;
+
+    .post__photo {
+        width: 100%;
+        max-width: 250px;
+        max-height: 260px;
+    }
 }
 
 .post__content {
@@ -30,26 +36,17 @@
 }
 
 .post__info {
-    display: flex;
-    flex-wrap: wrap;
-
     margin-bottom: 15px;
 
     .post__date {
-        width: 20%;
+        margin-right: 30px;
 
         font-size: 14px;
         font-weight: 600;
         color: $silver;
     }
 
-    .post__date--single {
-        width: 13%;
-    }
-
     .post__author {
-        width: 17%;
-
         font-size: 14px;
         font-weight: 600;
         color: $silver;
@@ -57,9 +54,8 @@
 
 
     .post__comments-quantity {
-        width: 70%;
 
-        padding-left: 80px;
+        padding-left: 110px;
 
         font-size: 14px;
         font-weight: 600;
