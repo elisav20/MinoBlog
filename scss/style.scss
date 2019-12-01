@@ -57,8 +57,9 @@ body {
     margin-top: 100px;
 }
 
-@import '_header.scss';
-@import '_intro.scss';
-@import '_post.scss';
-@import '_recent_posts';
-@import '_category';
+@import 'header.scss';
+@import 'intro.scss';
+@import 'post.scss';
+@import 'recent_posts.scss';
+@import 'category.scss';
+@import 'comments.scss'

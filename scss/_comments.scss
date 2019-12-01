@@ -1,0 +1,59 @@
+.comments {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+
+    .comments__number {
+        margin-bottom: 15px;
+
+        font-size: 14px;
+        font-weight: 700;
+        color: $blue;
+        text-transform: uppercase;
+    }
+
+    .comment__content {
+        margin-left: 10px;
+    }
+
+    .comment__info {
+        margin-bottom: 15px;
+        position: relative;
+
+        font-size: 14px;
+        font-weight: 600;
+        color: $silver;
+
+        .comment__icon i {
+            margin-right: 5px;
+            color: $blue;
+        }
+
+        .comment__username {
+            margin-right: 5px;
+        }
+
+        .comment__dot {
+            font-size: 5px;
+
+            position: absolute;
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        .comment__date {
+            margin-left: 15px;
+        }
+    }
+
+    .comment__text {
+        margin-left: 20px;
+        padding-bottom: 15px;
+
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color: $dark-silver;
+
+        border-bottom: 1px solid #eee;
+    }
+}
