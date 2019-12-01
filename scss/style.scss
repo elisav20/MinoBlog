@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
     font-size: 14px;
     line-height: 1.5;
     color: $black;
@@ -60,6 +61,7 @@ body {
 
 @import 'header.scss';
 @import 'intro.scss';
+@import 'breadcrumb';
 @import 'post.scss';
 @import 'recent_posts.scss';
 @import 'category.scss';

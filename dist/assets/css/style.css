@@ -1,5 +1,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
   font-size: 14px;
   line-height: 1.5;
   color: #333333; }
@@ -126,6 +127,28 @@ body {
     font-size: 16px;
     font-weight: 700;
     color: #fff; }
+
+.breadcrumb {
+  background-color: transparent; }
+  .breadcrumb .breadcrumb-item a {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #23a0bf;
+    transition: all .2s linear; }
+    .breadcrumb .breadcrumb-item a:hover {
+      text-decoration: underline; }
+  .breadcrumb .breadcrumb-item.active {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase; }
+  .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-weight: 400;
+    content: "\f105";
+    padding-right: .5rem;
+    color: #6c757d; }
 
 .posts {
   padding-right: 30px; }

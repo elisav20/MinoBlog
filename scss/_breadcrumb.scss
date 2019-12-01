@@ -1,0 +1,33 @@
+.breadcrumb {
+    background-color: transparent;
+
+    .breadcrumb-item {
+        a {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $blue;
+
+            transition: all .2s linear;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &.active {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+    .breadcrumb-item+.breadcrumb-item::before {
+        display: inline-block;
+        font-family: FontAwesome;
+        font-weight: 400;
+        content: "\f105";
+        padding-right: .5rem;
+        color: #6c757d;
+    }
+}
