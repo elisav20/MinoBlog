@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Open+Sans:400,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Categories</title>
+    <title>Post</title>
 </head>
 
 <body>
@@ -43,13 +44,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="categories.html">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="store.html">Store</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="contact.html">Contacts</a>
                         </li>
                     </ul>
@@ -69,106 +70,80 @@
     </div>
     <!-- /.header -->
 
-    <!-- content -->
-    <div class="content">
+    <!-- .contact -->
+    <section class="contact">
         <div class="container">
+            <h2>Contact</h2>
             <div class="row">
-                <section class="col-md-9 posts">
-
-                    <h1 class="category__select">
-                        Category: <br>
-                        <span>Travelling</span>
-                    </h1>
-
-                    <div class="post">
-                        <img src="assets/img/posts/1_small.jpg" class="img-fluid" alt="post__photo">
-
-                        <div class="post__content">
-                            <a class="post__title" href="post.html">Sangar Slider Demo</a>
-
-                            <div class="post__info">
-                                <span class="post__date">July 1, 2014</span>
-                                <span class="post__author">Admin Mino</span>
-                                <span class="post__comments-quantity">No Comments</span>
-                                <div class="post__category">Posted in <a href="#">Traveling</a></div>
-                            </div>
-
-                            <p class="post__text">This is an example of a WordPress post, you could edit this to
-                                put
-                                information about yourself or your site so readers know where you are coming from. You
-                                can create as
-                                many posts as you like in order to share with your readers what is on your mind.
-                            </p>
-
-                            <a class="btn btn--black" href="#">Read More</a>
-                        </div>
+                <div class="col-12">
+                    <div id="map-container-section" class="z-depth-1-half map-container-section mb-4"
+                        style="height: 400px">
+                        <iframe src="https://maps.google.com/maps?q=Manhatan&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
-
-                    <div class="post">
-                        <img src="assets/img/posts/2_small.jpg" class="img-fluid" alt="post__photo">
-
-                        <div class="post__content">
-                            <a class="post__title" href="#"> Travelling with Love</a>
-
-                            <div class="post__info">
-                                <span class="post__date">July 1, 2014</span>
-                                <span class="post__author">Admin Mino</span>
-                                <span class="post__comments-quantity">No Comments</span>
-                                <div class="post__category">Posted in <a href="#">Traveling</a></div>
-                            </div>
-
-                            <p class="post__text">This is an example of a WordPress post, you could edit this to
-                                put
-                                information about yourself or your site so readers know where you are coming from. You
-                                can create as
-                                many posts as you like in order to share with your readers what is on your mind.
-                            </p>
-
-                            <a class="btn btn--black" href="#">Read More</a>
-                        </div>
-                    </div>
-
-                </section>
-                <!-- /.posts -->
-
-                <!-- .sidebar -->
-                <div class="col-md-3 sidebar">
-
-                    <section class="recent__posts">
-                        <h4>Recent posts</h4>
-
-                        <div class="recent__post-info">
-                            <a class="recent__post-title" href="#">Perfection is Boring, Getting Better is Where All the
-                                Fun Is</a>
-                            <div class="recent__post-date">July 1, 2014</div>
-                        </div>
-
-                        <div class="recent__post-info">
-                            <a class="recent__post-title">Design From the Spine and You’ll Be Fine</a>
-                            <div class="recent__post-date">July 1, 2014</div>
-                        </div>
-                    </section>
-
-                    <section class="category">
-                        <h4>Category</h4>
-
-                        <div class="category__info">
-                            <a class="category__name" href="#">Traveling</a>
-                        </div>
-
-                        <div class="category__info">
-                            <a class="category__name" href="#">Transport</a>
-                        </div>
-                    </section>
-
                 </div>
-                <!-- /.sidebar -->
             </div>
-            <!-- .row -->
+            <div class="row">
+                <div class="col-6">
+                    <div class="contact__title">How to Contact us</div>
+                    <p class="contact__text">This contact use Contact Form 7 plugin. When you installed default Contact
+                        Form 7 form submission, it will adapted to Mino default CSS styles as you seen in this page.</p>
+
+                    <form>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="contact-name" class="form-control">
+                                    <label for="contact-name" class="">Your name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="contact-email" class="form-control">
+                                    <label for="contact-email" class="">Your email</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="contact-Subject" class="form-control">
+                                    <label for="contact-Subject" class="">Subject</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form">
+                                    <textarea id="contact-message" class="form-control md-textarea" rows="3"></textarea>
+                                    <label for="contact-message">Your message</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <input type="submit" class="btn btn--black mb-3" value="SEND">
+                </div>
+                <!-- /.col-6 -->
+
+                <div class="col-6">
+                    <div class="contact__title">How you can reach us <br>Tonjoo </div>
+                    <p class="contact__text">Jalan Tongkol Raya No 5 - Minomartani Ngaglik Sleman, Yogyakarta 55581
+                        +62 812 1865 7154.</p>
+                </div>
+            </div>
+            <!-- /.row -->
         </div>
-        <!-- .container -->
-    </div>
-    <!-- /.content -->
+        <!-- /.container -->
+    </section>
+    <!-- /.contact -->
+
+
 
     <!-- .footer -->
     <footer class="footer">

@@ -295,6 +295,32 @@ body {
     color: #7d7d7d;
     border-bottom: 1px solid #eee; }
 
+.contact {
+  padding: 30px 0;
+  color: #333333; }
+  .contact h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: 700; }
+  .contact .contact__title {
+    font-size: 18px;
+    font-weight: 700; }
+  .contact .contact__text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px; }
+
+.map-container-section {
+  overflow: hidden;
+  position: relative;
+  height: 300px; }
+
+.map-container-section iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute; }
+
 .footer {
   padding: 50px 0;
   background: #181717; }

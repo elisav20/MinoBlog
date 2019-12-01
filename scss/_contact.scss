@@ -1,0 +1,35 @@
+.contact {
+    padding: 30px 0;
+    color: $black;
+
+    h2 {
+        margin-bottom: 20px;
+
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .contact__title {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .contact__text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+    }
+}
+
+.map-container-section {
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+}
+
+.map-container-section iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
