@@ -179,10 +179,6 @@ label.active {
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid #eee; }
-  .post .post__photo {
-    width: 100%;
-    max-width: 250px;
-    max-height: 260px; }
 
 .post__content {
   display: flex;
