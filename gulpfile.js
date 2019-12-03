@@ -16,23 +16,23 @@ gulp.task('css-compile', () => {
       outputStyle: 'nested'
     }).on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./dist/assets/css/'));
+    .pipe(gulp.dest('./dist/admin/assets/css/'));
 });
 
 gulp.task('css-minify', () => {
-  return gulp.src(['./dist/assets/css/*.css', '!./dist/assets/css/*.min.css'])
+  return gulp.src(['./dist/admin/assets/css/*.css', '!./dist/admin/assets/css/*.min.css'])
     .pipe(cssmin())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./dist/assets/css'));
+    .pipe(gulp.dest('./dist/admin/assets/css'));
 });
 
 // JavaScript Tasks
 gulp.task('js-build', () => {
 
   return gulp.src('./js/*.js')
-    .pipe(gulp.dest('./dist/assets/js/'));
+    .pipe(gulp.dest('./dist/admin/assets/js/'));
 
   gulp.series('js-lite-build');
   gulp.series('js-minify');
@@ -40,14 +40,14 @@ gulp.task('js-build', () => {
 });
 
 gulp.task('js-minify', () => {
-  return gulp.src(['./dist//assets/js/main.js'])
+  return gulp.src(['./dist/admin/assets/js/main.js'])
     .pipe(minify({
       ext: {
         min: '.min.js'
       },
       noSource: true,
     }))
-    .pipe(gulp.dest('./dist/assets/js'));
+    .pipe(gulp.dest('./dist/admin/assets/js'));
 });
 
 // Image Compression
@@ -73,7 +73,7 @@ gulp.task('img-compression', function () {
         ]
       })
     ]))
-    .pipe(gulp.dest('./dist/img'));
+    .pipe(gulp.dest('./dist/admin/img'));
 });
 
 // Live Server
@@ -86,7 +86,7 @@ gulp.task('live-server', function (done) {
 function initBrowser() {
   browserSync.init({
     server: {
-      baseDir: "./dist/",
+      baseDir: "./dist/admin",
       directory: true
     },
     notify: false
@@ -98,12 +98,12 @@ function initBrowser() {
 gulp.task('mdb-go', function (done) {
   initBrowser();
   gulp.watch("**/*", {
-    cwd: './dist'
+    cwd: './dist/admin'
   }, gulp.parallel('live-server'));
   gulp.watch("scss/**/*.scss", gulp.parallel('css-compile'));
-  gulp.watch(["dist/assets/css/*.css", "!dist/assets/css/*.min.css"], gulp.parallel('css-minify'));
+  gulp.watch(["dist/admin/assets/css/*.css", "!dist/admin/assets/css/*.min.css"], gulp.parallel('css-minify'));
   gulp.watch("js/**/*.js", gulp.parallel('js-build'));
-  gulp.watch(["dist/assets/js/*.js", "!dist/assets/js/*.min.js"], gulp.parallel('js-minify'));
+  gulp.watch(["dist/admin/assets/js/*.js", "!dist/admin/assets/js/*.min.js"], gulp.parallel('js-minify'));
   gulp.watch("**/*", {
     cwd: './img/'
   }, gulp.parallel('img-compression'));

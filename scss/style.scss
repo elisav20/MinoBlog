@@ -63,6 +63,13 @@ body {
     margin-top: 100px;
 }
 
+#reg_error, 
+#reg_success, 
+#log_error {
+    display: none;
+}
+
+
 .md-form input:not([type]):focus:not([readonly]),
 .md-form input[type=password]:not(.browser-default):focus:not([readonly]),
 .md-form input[type=email]:not(.browser-default):focus:not([readonly]),
