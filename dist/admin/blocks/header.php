@@ -1,3 +1,5 @@
+<?php include_once 'db.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href='https://fonts.googleapis.com/css?family=Dosis|Candal' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +26,7 @@
         <div class="container">
             <div class="header__logo">
                 <!-- Navbar brand -->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="assets/img/header__logo.png" alt="logo">
                 </a>
             </div>
@@ -42,13 +46,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.php?module=posts&action=read">Home</a>
+                            <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="categories.php">Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="store.php">Store</a>
+                            <a class="nav-link" href="#">Store</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contacts</a>
@@ -74,14 +78,14 @@
                         <?php
                             if($_COOKIE['login'] == ''):
                         ?>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signup-modal">Login</a>
+                        <a class="dropdown-item" href="authorization.php">Login</a>
 
                         <?php
                             else:
                         ?>
 
-                        <a class="dropdown-item" href="#">Add new post</a>
-                        <a class="dropdown-item" href="user_profile.html">My posts</a>
+                        <a class="dropdown-item" href="add_post.php">Add new post</a>
+                        <a class="dropdown-item" href="user_profile.php">My posts</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" id="exit_btn" href="#">Log out</a>
 

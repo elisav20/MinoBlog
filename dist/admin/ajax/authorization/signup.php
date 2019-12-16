@@ -7,15 +7,15 @@
 
     $error = '';
     if (strlen($firstName) <= 3)
-        $error = 'Incorrect First Name';
+        $error = 'The First Name must be more than three characters';
     else if (strlen($lastName) <= 3)
-        $error = 'Incorrect Last Name';
+        $error = 'The Last Name must be more than three characters';
     else if (strlen($userName) <= 3)
-        $error = 'Incorrect User Name';
+        $error = 'The User Name must be more than three characters';
     else if (strlen($email) <= 3)
         $error = 'Incorrect Email adress';
-    else if (strlen($pass) <= 3)
-        $error = 'Incorrect Password';
+    else if (strlen($pass) <= 6)
+        $error = 'The Password must be more than three characters';
 
     if ($error != '') {
         echo $error;

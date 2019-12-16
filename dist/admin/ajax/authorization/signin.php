@@ -5,9 +5,9 @@
     $error = '';
     
     if (strlen($userName) <= 3)
-        $error = 'Incorrect User Name';
+        $error = 'The User Name must be more than three characters';
     else if (strlen($pass) <= 3)
-        $error = 'Incorrect Password';
+        $error = 'The password must be more than three characters';
 
     if ($error != '') {
         echo $error;
@@ -28,6 +28,7 @@
         echo 'User does not exist';
     else {
         setcookie('login', $userName, time() + 3600, "/" );
+        header('Refresh: 3; url=authorization.php');
         echo 'SUCCESS';
     }
 ?>
