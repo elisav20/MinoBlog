@@ -1,71 +1,57 @@
 <?php 
 include_once '../db.php';
-$uploadDir = '../assets/img/'; 
+$uploadDir = '../assets/img/posts/'; 
 $response = array( 
     'status' => 0, 
     'message' => 'Add post failed, please try again.' 
 ); 
  
-if(isset($_POST['post_title']) || isset($_POST['post_text'])){ 
+if(isset($_POST['post_title']) && isset($_POST['post_text'])){ 
 
-    $title = $_POST['post_title']; 
-    $text = $_POST['post_text'];
-    $date = time();
+    $title = trim(filter_var($_POST['post_title'], FILTER_SANITIZE_STRING)); 
+    $text = trim($_POST['post_text']);
     $id_category = add_categoryID($_POST['category_name']);
     $id_user = add_userID($_COOKIE['login']);
      
-    if(!empty($title) && !empty($text)){ 
-        if(strlen($title) <= 3){ 
-            $response['message'] = 'The title must be more than three characters'; 
+    if(strlen($title) <= 3){ 
+        $response['message'] = 'The title must be more than three characters'; 
+        
+    } else if(empty($_FILES["post_photo"]["name"])) {
+        $response['message'] = 'Select photo'; 
+    } else if (!isset($_POST['category_name'])){ 
+        $response['message'] = 'Select category'; 
+    }
+        else if (strlen($text) <= 20){ 
+        $response['message'] = 'The text must be more than twenty characters'; 
+    } else{ 
+        $uploadStatus = 1; 
             
-        } else if (!isset($_POST['category_name'])){ 
-            $response['message'] = 'Select category'; 
-        }
-         else if (strlen($text) <= 20){ 
-            $response['message'] = 'The text must be more than twenty characters'; 
+        $uploadedFile = ''; 
+        
+        $fileName = microtime() . '.' . basename($_FILES["post_photo"]["name"]);
+        $targetFilePath = $uploadDir . $fileName; 
+        $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+            
+        $allowTypes = array('jpg', 'jpeg'); 
+        if(in_array($fileType, $allowTypes)){ 
+            $uploadedFile = $fileName; 
+        }else{ 
+            $uploadStatus = 0; 
+            $response['message'] = 'Sorry, only JPG & JPEG files are allowed to upload.';
         } 
-        else if (empty($_FILES['post_photo'])){ 
-            $response['message'] = 'Select category'; 
-        } 
-        else{ 
-            $uploadStatus = 1; 
-             
-            $uploadedFile = ''; 
-            if(!empty($_FILES["post_photo"]["name"])){ 
-                 
-                $fileName = microtime() . '.' . basename($_FILES["post_photo"]["name"]); 
-                $targetFilePath = $uploadDir . $fileName; 
-                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
-                 
-                $allowTypes = array('jpg', 'jpeg'); 
-                if(in_array($fileType, $allowTypes)){ 
+            
+        if($uploadStatus == 1){  
 
-                    if(move_uploaded_file($_FILES["post_photo"]["tmp_name"], $targetFilePath)){ 
-                        $uploadedFile = $fileName; 
-                    }else{ 
-                        $uploadStatus = 0; 
-                        $response['message'] = 'Sorry, there was an error uploading your file.'; 
-                    } 
-                }else{ 
-                    $uploadStatus = 0; 
-                    $response['message'] = 'Sorry, only JPG & JPEG files are allowed to upload.';
-                } 
-            }
-             
-            if($uploadStatus == 1){  
-
-                $sql = 'INSERT INTO posts(title, photo, text, date, id_category, id_user) VALUES(?, ?, ?, ?, ?, ?)';
-                $query = $pdo->prepare($sql);
-                $query->execute([$title, $uploadedFile, $text, $date, $id_category, $id_user]);
-                 
-                if($query){ 
-                    $response['status'] = 1; 
-                    $response['message'] = 'Post add successfully!'; 
-                } 
+            $sql = 'INSERT INTO posts(title, photo, text, id_category, id_user) VALUES(?, ?, ?, ?, ?)';
+            $query = $pdo->prepare($sql);
+            $query->execute([$title, $uploadedFile, $text, $id_category, $id_user]);
+                
+            if($query){ 
+                $response['status'] = 1; 
+                $response['message'] = 'Post add successfully!';
+                move_uploaded_file($_FILES["post_photo"]["tmp_name"], $targetFilePath); 
             } 
         } 
-    }else{ 
-         $response['message'] = 'Please fill all the mandatory fields (title and text).'; 
     } 
 } 
  

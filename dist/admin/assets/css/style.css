@@ -224,17 +224,17 @@ body {
       color: #333333; }
 
 .post__text {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #333333; }
 
 .sidebar {
   border-left: 1px solid #eee;
-  height: 500px; }
+  height: 100%; }
 
 .recent__posts {
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   padding-left: 15px; }
   .recent__posts h4 {
     font-size: 12px;
@@ -246,7 +246,7 @@ body {
     border-bottom: 2px solid #eee; }
     .recent__posts .recent__post-info .recent__post-title {
       margin-bottom: 5px;
-      font-family: 'Open Sans', sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-size: 14px;
       font-weight: 700;
       color: #333333; }
@@ -294,7 +294,8 @@ body {
     text-transform: uppercase; }
   .comments .comment__content {
     margin-left: 10px;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee; }
   .comments .comment__info {
     margin-bottom: 15px;
     position: relative;
@@ -316,10 +317,9 @@ body {
   .comments .comment__text {
     margin-left: 20px;
     padding-bottom: 15px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
-    color: #7d7d7d;
-    border-bottom: 1px solid #eee; }
+    color: #7d7d7d; }
   .comments .comment__leave {
     font-size: 28px;
     font-weight: 700;

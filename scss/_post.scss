@@ -1,80 +1,78 @@
 .posts {
-    padding-right: 30px;
+  padding-right: 30px;
 }
 
 .post {
-    display: flex;
+  display: flex;
 
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
 }
 
 .post__content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    padding-left: 20px;
+  padding-left: 20px;
 
-    .post__title {
-        margin-bottom: 10px;
+  .post__title {
+    margin-bottom: 10px;
 
-        font-size: 28px;
-        font-weight: 700;
-        color: $black;
-    }
+    font-size: 28px;
+    font-weight: 700;
+    color: $black;
+  }
 
-    .post__title--single {
-        font-size: 34px;
-    }
+  .post__title--single {
+    font-size: 34px;
+  }
 }
 
 .post__info {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 
-    .post__date {
-        margin-right: 30px;
+  .post__date {
+    margin-right: 30px;
 
-        font-size: 14px;
-        font-weight: 600;
-        color: $silver;
+    font-size: 14px;
+    font-weight: 600;
+    color: $silver;
+  }
+
+  .post__author {
+    font-size: 14px;
+    font-weight: 600;
+    color: $silver;
+  }
+
+  .post__comments-quantity {
+    padding-left: 110px;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: $silver;
+  }
+
+  .post__category {
+    font-size: 14px;
+    font-weight: 600;
+    color: $silver;
+
+    a {
+      color: $black;
     }
-
-    .post__author {
-        font-size: 14px;
-        font-weight: 600;
-        color: $silver;
-    }
-
-
-    .post__comments-quantity {
-
-        padding-left: 110px;
-
-        font-size: 14px;
-        font-weight: 600;
-        color: $silver;
-    }
-
-    .post__category {
-        font-size: 14px;
-        font-weight: 600;
-        color: $silver;
-
-        a {
-            color: $black;
-        }
-    }
+  }
 }
 
 .post__text {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: $black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: $black;
 }
 
 .sidebar {
-    border-left: 1px solid #eee;
-    height: 500px;
+  border-left: 1px solid #eee;
+  height: 100%;
 }

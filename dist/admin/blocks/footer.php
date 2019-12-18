@@ -7,18 +7,18 @@
                      <div class="footer__recent-posts">
                          <h4>Recent posts</h4>
 
-                         <div class="footer__recent-post__info">
-                             <a class="footer__recent-post__title" href="#">Perfection is Boring, Getting Better is
-                                 Where
-                                 All the Fun
-                                 Is</a>
-                             <div class="footer__recent-post__date">July 1, 2014</div>
-                         </div>
+                         <?php 
+                            $recent_posts = get_recent_posts ();
+                            foreach ($recent_posts as $recent_post):
+                        ?>
 
                          <div class="footer__recent-post__info">
-                             <a class="footer__recent-post__title">Design From the Spine and You’ll Be Fine</a>
-                             <div class="footer__recent-post__date">July 1, 2014</div>
+                             <a class="footer__recent-post__title" href="#"><?=$recent_post["title"]; ?></a>
+                             <div class="footer__recent-post__date">
+                                 <?=date("F j, Y",strtotime($recent_post["date"])); ?></div>
                          </div>
+
+                         <?php endforeach; ?>
                      </div>
                  </div>
 
@@ -26,10 +26,10 @@
                      <div class="footer__nav">
                          <h4>Pages</h4>
 
-                         <a class="footer__nav-link" href="index.html">Home</a>
-                         <a class="footer__nav-link" href="categories.html">Categories</a>
-                         <a class="footer__nav-link" href="store.html">Store</a>
-                         <a class="footer__nav-link" href="contact.html">Contacts</a>
+                         <a class="footer__nav-link" href="index.php">Home</a>
+                         <a class="footer__nav-link" href="categories.php">Categories</a>
+                         <a class="footer__nav-link" href="#">Store</a>
+                         <a class="footer__nav-link" href="contact.php">Contacts</a>
                      </div>
                  </div>
 
@@ -38,9 +38,12 @@
                          <h4>Categories</h4>
 
                          <div class="footer__categories-content">
-                             <a class="footer__categories-item rounded-pill" href="#">Traveling</a>
-                             <a class="footer__categories-item rounded-pill" href="#">Traveling</a>
-                             <a class="footer__categories-item rounded-pill" href="#">Traveling</a>
+                             <?php 
+                                $categories = get_categories ();
+                                foreach ($categories as $category):
+                            ?>
+                             <a class="footer__categories-item rounded-pill" href="#"><?=$category["name"]; ?></a>
+                             <?php endforeach; ?>
                          </div>
                      </div>
                  </div>

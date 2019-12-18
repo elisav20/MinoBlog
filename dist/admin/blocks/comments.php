@@ -1,72 +1,67 @@
+<?php 
+    if ($_POST['username'] != '' && $_POST['email'] != '' && $_POST['comment'] != '') {
+        $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
+        $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
+        $comment = trim(filter_var($_POST['comment'], FILTER_SANITIZE_STRING));
+
+        $sql = 'INSERT INTO comments(comment, id_post, username, email) VALUES(?, ?, ?, ?)';
+        $query = $pdo->prepare($sql);
+        $query->execute([$comment, $_GET['id'], $username, $email]);
+    }
+?>
+
 <!-- .comments -->
 <section class="comments">
-    <h1 class="comments__number">Comments 8</h1>
+    <?php 
+        $quantity = get_comments_quantity ($_GET['id']);
+    ?>
+    <h1 class="comments__number">Comments <?=$quantity?></h1>
+
+    <?php 
+        $comments = get_comments ($_GET['id']);
+        foreach ($comments as $commentary):
+    ?>
 
     <div class="comment__content">
         <div class="comment__info">
             <span class="comment__icon">
                 <i class="fas fa-user"></i>
             </span>
-            <span class="comment__username">admin_mino </span>
+            <span class="comment__username"><?=$commentary["username"]?> </span>
             <span class="comment__dot">
                 <i class="fas fa-circle"></i>
             </span>
-            <span class="comment__date">01.12.2019 20:31</span>
+            <span class="comment__date"><?=date("d.m.y H:i",strtotime($commentary["date"]));?></span>
         </div>
 
-        <p class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Corporis
-            harum deserunt voluptates vel nam quis itaque illum magni eveniet blanditiis iusto
-            esse,
-            ducimus voluptatum, ea, suscipit, animi cupiditate perspiciatis adipisci! Lorem
-            ipsum
-            dolor sit amet, consectetur adipisicing elit.</p>
+        <p class="comment__text"><?=$commentary["comment"]?></p>
     </div>
 
-    <div class="comment__content">
-        <div class="comment__info">
-            <span class="comment__icon">
-                <i class="fas fa-user"></i>
-            </span>
-            <span class="comment__username">admin_mino </span>
-            <span class="comment__dot">
-                <i class="fas fa-circle"></i>
-            </span>
-            <span class="comment__date">01.12.2019 20:31</span>
-        </div>
-
-        <p class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Corporis
-            harum deserunt voluptates vel nam quis itaque illum magni eveniet blanditiis iusto
-            esse,
-            ducimus voluptatum, ea, suscipit, animi cupiditate perspiciatis adipisci! Lorem
-            ipsum
-            dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+    <?php endforeach;?>
 
     <section class="my-5">
         <h1 class="comment__leave">Leave a Comment</h1>
         <p>Your email address will not be published. Required fields are marked</p>
 
-        <form class="px-1 mt-4">
+        <form class="px-1 mt-4" action="" method="POST">
 
             <div class="md-form mt-5">
-                <label for="replyFormName">Your name</label>
-                <input type="email" id="replyFormName" class="form-control">
+                <label for="username">Your name</label>
+                <input type="text" id="username" name="username" class="form-control" value="<?=$_COOKIE['login']?>">
             </div>
 
             <div class="md-form mt-5">
-                <label for="replyFormEmail">Your e-mail</label>
-                <input type="email" id="replyFormEmail" class="form-control">
+                <label for="email">Your e-mail</label>
+                <input type="email" id="email" name="email" class="form-control">
             </div>
 
             <div class="md-form">
-                <label for="replyFormComment">Your comment</label>
-                <textarea class="form-control md-textarea" id="replyFormComment" rows="4"></textarea>
+                <label for="comment">Your comment</label>
+                <textarea class="form-control md-textarea" id="comment" name="comment" rows="4"></textarea>
             </div>
 
             <div class="text-center mt-4">
-                <button class="btn btn-default btn-rounded btn-md" type="submit">Post</button>
+                <input class="btn btn-default" type="submit" id="add_comment" value="Post">
             </div>
 
         </form>
