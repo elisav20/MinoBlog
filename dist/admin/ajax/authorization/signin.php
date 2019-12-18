@@ -28,7 +28,6 @@
         echo 'User does not exist';
     else {
         setcookie('login', $userName, time() + 3600, "/" );
-        header('Refresh: 3; url=authorization.php');
         echo 'SUCCESS';
     }
 ?>

@@ -41,7 +41,9 @@
 
                             <div class="post__info">
                                 <span class="post__date"><?=date("F j, Y",strtotime($post["date"])); ?></span>
-                                <span class="post__author"><?=$author["firstname"] . ' ' . $author["lastname"] ?></span>
+                                <a class="post__author" href="user_profile.php?id=<?=$post["id_user"]?>">
+                                    <?=$author["firstname"] . ' ' . $author["lastname"] ?>
+                                </a>
                                 <span class="post__comments-quantity">
 
                                     <?php

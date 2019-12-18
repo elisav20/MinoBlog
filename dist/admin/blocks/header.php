@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="shortcut icon" href="assets/img/icon.ico">
     <link href='https://fonts.googleapis.com/css?family=Dosis|Candal' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -76,6 +77,7 @@
                         aria-labelledby="navbarDropdownMenuLink-4">
 
                         <?php
+                            $id_user = add_userID($_COOKIE['login']);
                             if($_COOKIE['login'] == ''):
                         ?>
                         <a class="dropdown-item" href="authorization.php">Login</a>
@@ -85,7 +87,7 @@
                         ?>
 
                         <a class="dropdown-item" href="add_post.php">Add new post</a>
-                        <a class="dropdown-item" href="user_profile.php">My posts</a>
+                        <a class="dropdown-item" href="user_profile.php?id=<?=$id_user?>">My posts</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" id="exit_btn" href="#">Log out</a>
 

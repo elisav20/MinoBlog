@@ -68,6 +68,26 @@
         return $recent_posts;
     }
 
+    function get_user_posts ($id) {
+        global $pdo;
+        $user_posts = $pdo->query("SELECT * 
+                                        FROM posts
+                                        WHERE id_user = $id
+                                        ORDER BY date DESC");
+        return $user_posts;
+    }
+
+    function get_count_posts ($id) {
+        global $pdo;
+        $sql = 'SELECT *
+                FROM posts
+                WHERE id_user = :id_user';
+        $query = $pdo->prepare($sql);
+        $query->execute(['id_user' => $id]);
+        $posts_count = $query->fetchAll(PDO::FETCH_ASSOC);
+        return count($posts_count);
+    }
+
     function get_author ($id) {
         global $pdo;
         $authors = $pdo->query("SELECT firstname, lastname 
@@ -75,6 +95,21 @@
                                 ON users.id = posts.id_user
                                 WHERE posts.id_user = $id");
 
+        foreach ($authors as $author) {
+            return $author;
+        }
+    }
+
+    function get_author_byID ($id) {
+        global $pdo;
+        $sql = 'SELECT firstname, lastname 
+                FROM users
+                WHERE id = :id';
+        $query = $pdo->prepare($sql);
+        $query->execute(['id' => $id]);
+
+        $authors = $query->fetchAll(PDO::FETCH_ASSOC);
+        
         foreach ($authors as $author) {
             return $author;
         }

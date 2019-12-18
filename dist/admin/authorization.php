@@ -1,6 +1,8 @@
 <?php
     if($_COOKIE['login']){
-        header('Location: index.php');
+        include 'db.php';
+        $id_user = add_userID($_COOKIE['login']);
+        header('Location: user_profile.php?id=' . $id_user);
     } else {
     $website_title = 'Authorization';
     include_once 'blocks/header.php';
