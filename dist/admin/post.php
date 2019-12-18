@@ -18,7 +18,8 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#"><?=$category["name"]; ?></a></li>
+                        <li class="breadcrumb-item"><a
+                                href="category.php?id=<?=$category["id_category"];?>"><?=$category["name"]; ?></a></li>
                         <li class="breadcrumb-item active"><?=$post["title"]; ?></li>
                     </ol>
                 </nav>
@@ -42,7 +43,9 @@
                                         echo $quantity . ' comments'
                                 ?>
                             </span>
-                            <div class="post__category">Posted in <a href="#"><?=$category["name"]; ?></a></div>
+                            <div class="post__category">Posted in <a
+                                    href="category.php?id=<?=$category["id_category"];?>"><?=$category["name"]; ?></a>
+                            </div>
                         </div>
 
                         <img class="img-fluid mb-4" src="assets/img/posts/<?=$post['photo'];?>" alt="Sample img">

@@ -45,6 +45,16 @@
         return $posts;
     }
 
+    function count_posts () {
+        global $pdo;
+        $sql = 'SELECT *
+                FROM posts';
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $count = $query->fetchAll(PDO::FETCH_ASSOC);
+        return count($count);
+    }
+
      function get_post ($id) {
         global $pdo;
         $sql = 'SELECT *
@@ -77,7 +87,7 @@
         return $user_posts;
     }
 
-    function get_count_posts ($id) {
+    function get_count_user_posts ($id) {
         global $pdo;
         $sql = 'SELECT *
                 FROM posts
@@ -86,6 +96,15 @@
         $query->execute(['id_user' => $id]);
         $posts_count = $query->fetchAll(PDO::FETCH_ASSOC);
         return count($posts_count);
+    }
+
+    function get_posts_byCategory ($id) {
+        global $pdo;
+        $category_posts = $pdo->query("SELECT * 
+                                        FROM posts
+                                        WHERE id_category = $id
+                                        ORDER BY date DESC");
+        return $category_posts;
     }
 
     function get_author ($id) {
@@ -133,6 +152,17 @@
         $categories = $pdo->query("SELECT * 
                                     FROM categories");
         return $categories;
+    }
+
+    function get_count_category_posts ($id) {
+        global $pdo;
+        $sql = 'SELECT *
+                FROM posts
+                WHERE id_category = :id_category';
+        $query = $pdo->prepare($sql);
+        $query->execute(['id_category' => $id]);
+        $posts_count = $query->fetchAll(PDO::FETCH_ASSOC);
+        return count($posts_count);
     }
 
     function get_comments_quantity ($id) {

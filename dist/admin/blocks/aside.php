@@ -30,7 +30,8 @@
         ?>
 
         <div class="category__info">
-            <a class="category__name" href="#"><?=$category["name"]; ?></a>
+            <a class="category__name" href="category.php?id=<?=$category["id_category"];?>">
+                <?=$category["name"]; ?></a>
         </div>
 
         <?php endforeach; ?>

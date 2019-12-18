@@ -1,4 +1,5 @@
 <?php
+    $page = 'home';
     $website_title = 'Home';
     include_once 'blocks/header.php';
     include_once 'blocks/intro.php';
@@ -55,7 +56,8 @@
                                     ?>
 
                                 </span>
-                                <div class="post__category">Posted in <a href="#"><?=$category["name"]; ?></a>
+                                <div class="post__category">Posted in <a
+                                        href="category.php?id=<?=$category["id_category"];?>"><?=$category["name"]; ?></a>
                                 </div>
                             </div>
 
@@ -78,9 +80,16 @@
                 </div>
                 <!-- /.post -->
 
-                <?php endforeach; ?>
+                <?php 
+                    endforeach; 
+                    $count_posts = count_posts();
+                    if ($count_posts <= 5)
+                        $class_name = 'd-none';
+                    else
+                        $class_name = 'd-block';
+                ?>
 
-                <div class="text-center mb-3" id="loadMore">
+                <div class="text-center mb-3 <?=$class_name?>" id="loadMore">
                     <a class="btn btn-default" href="#">See More</a>
                 </div>
 

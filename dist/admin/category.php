@@ -1,5 +1,5 @@
 <?php
-    $website_title = 'My Profile';
+    $website_title = 'Category';
     include_once 'blocks/header.php';
 ?>
 
@@ -9,18 +9,18 @@
         <div class="row">
             <section class="col-md-9 posts">
                 <?php
-                    $author = get_author_byID ($_GET['id']);
-                    $count_posts = get_count_user_posts ($_GET['id']);
+                    $category = get_category ($_GET['id']);
+                    $count_posts = get_count_category_posts ($_GET['id']);
                     if ($count_posts == 0):
                 ?>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item active"><?=$author["firstname"] . ' ' . $author["lastname"] ?></li>
+                        <li class="breadcrumb-item active"><?=$category["name"]?></li>
                     </ol>
                 </nav>
 
-                <h1 class="text-center mb-3 vh-100">This user has not added any posts</h1>
+                <h1 class="text-center mb-3 vh-100">No posts have been added to this category.</h1>
 
                 <?php
                     else:
@@ -29,12 +29,12 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item active"><?=$author["firstname"] . ' ' . $author["lastname"] ?></li>
+                        <li class="breadcrumb-item active"><?=$category["name"]?></li>
                     </ol>
                 </nav>
 
                 <?php
-                    $posts = get_user_posts ($_GET['id']);
+                    $posts = get_posts_byCategory ($_GET['id']);
                     foreach ($posts as $post): 
                     
                     $category = get_category ($post["id_category"]);   
@@ -73,7 +73,8 @@
                                     ?>
 
                                 </span>
-                                <div class="post__category">Posted in <a href="#"><?=$category["name"]; ?></a>
+                                <div class="post__category">Posted in <a
+                                        href="category.php?id=<?=$category["id_category"];?>"><?=$category["name"]; ?></a>
                                 </div>
                             </div>
 
