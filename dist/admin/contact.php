@@ -26,14 +26,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <input type="text" id="contact-name" class="form-control">
+                                <input type="text" id="contact-name" name="contact-name" class="form-control">
                                 <label for="contact-name" class="">Your name</label>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <input type="text" id="contact-email" class="form-control">
+                                <input type="email" id="contact-email" name="contact-email" class="form-control">
                                 <label for="contact-email" class="">Your email</label>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="md-form mb-0">
-                                <input type="text" id="contact-Subject" class="form-control">
+                                <input type="text" id="contact-subject" name="contact-Subject" class="form-control">
                                 <label for="contact-Subject" class="">Subject</label>
                             </div>
                         </div>
@@ -51,7 +51,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="md-form">
-                                <textarea id="contact-message" class="form-control md-textarea" rows="3"></textarea>
+                                <textarea id="contact-message" name="contact-message" class="form-control md-textarea"
+                                    rows="3"></textarea>
                                 <label for="contact-message">Your message</label>
                             </div>
                         </div>
@@ -59,8 +60,12 @@
 
                 </form>
 
+                <div class="alert alert-danger" id="error"></div>
+                <div class="alert alert-success" id="success">Mail send success</div>
+
+
                 <div class="text-center mt-4">
-                    <button class="btn btn-default btn-rounded btn-md" type="submit">SEND</button>
+                    <button class="btn btn-default btn-rounded btn-md" id="send_mess" type="button">SEND</button>
                 </div>
             </div>
             <!-- /.col-6 -->

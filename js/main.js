@@ -213,3 +213,37 @@ $( "#close" ).click(function() {
   $("#search").show();
   $("#post_show").hide();
 });
+
+$("#send_mess").click(function() {
+  var contact_name = $("#contact-name").val();
+  var contact_email = $("#contact-email").val();
+  var contact_subject = $("#contact-subject").val();
+  var contact_message = $("#contact-message").val();
+
+  $.ajax({
+    url: "ajax/mail.php",
+    type: "POST",
+    cache: false,
+    data: {
+      "contact-name": contact_name,
+      "contact-email": contact_email,
+      "contact-subject": contact_subject,
+      "contact-message": contact_message,
+    },
+    dataType: "html",
+    success: function(data) {
+      if (data == "SUCCESS") {
+        $("#send_mess").text("Success");
+        $("#error").hide();
+        $("#success").show();
+        $("#contact-name").val("");
+        $("#contact-email").val("");
+        $("#contact-subject").val("");
+        $("#contact-message").val("");
+      } else {
+        $("#error").show();
+        $("#error").text(data);
+      }
+    }
+  });
+});

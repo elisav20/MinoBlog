@@ -14,7 +14,7 @@
         $error = 'The User Name must be more than three characters';
     else if (strlen($email) <= 3)
         $error = 'Incorrect Email adress';
-    else if (strlen($pass) <= 6)
+    else if (strlen($pass) <= 3)
         $error = 'The Password must be more than three characters';
 
     if ($error != '') {
