@@ -201,7 +201,8 @@ body {
     font-size: 34px; }
 
 .post__info {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  position: relative; }
   .post__info .post__date {
     margin-right: 30px;
     font-size: 14px;
@@ -222,6 +223,17 @@ body {
     color: #b5b5b5; }
     .post__info .post__category a {
       color: #333333; }
+  .post__info .post__modify {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    z-index: 1; }
+    .post__info .post__modify .delete {
+      margin-right: 10px;
+      color: red; }
+    .post__info .post__modify .edit {
+      color: #23a0bf; }
 
 .post__text {
   font-family: "Open Sans", sans-serif;

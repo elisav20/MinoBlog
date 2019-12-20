@@ -12,7 +12,7 @@
             foreach ($recent_posts as $recent_post):
         ?>
         <div class="recent__post-info">
-            <a class="recent__post-title" href="#"><?=$recent_post["title"]; ?></a>
+            <a class="recent__post-title" href="post.php?id=<?=$recent_post["id"]; ?>"><?=$recent_post["title"]; ?></a>
             <div class="recent__post-date"><?=date("F j, Y",strtotime($recent_post["date"])); ?></div>
         </div>
         <?php endforeach; ?>

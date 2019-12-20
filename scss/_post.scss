@@ -32,6 +32,8 @@
 .post__info {
   margin-bottom: 15px;
 
+  position: relative;
+
   .post__date {
     margin-right: 30px;
 
@@ -61,6 +63,23 @@
 
     a {
       color: $black;
+    }
+  }
+
+  .post__modify {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    z-index: 1;
+
+    .delete {
+      margin-right: 10px;
+      color: red;
+    }
+
+    .edit {
+      color: $blue;
     }
   }
 }

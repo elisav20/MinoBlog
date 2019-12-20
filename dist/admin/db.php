@@ -44,6 +44,16 @@
 
         return $posts;
     }
+    
+    function get_id_posts () {
+        global $pdo;
+        $id_posts = $pdo->query("SELECT id
+                                FROM posts");
+    foreach ($id_posts as $id_post) {
+        return $id_post;
+    }
+        
+    }
 
     function count_posts () {
         global $pdo;
@@ -63,6 +73,20 @@
         
         $query = $pdo->prepare($sql);
         $query->execute(['id' => $id]);
+
+        $post = $query->fetch(PDO::FETCH_ASSOC);
+        
+        return $post;
+    }
+
+    function get_post_toUpdate ($title, $id_user) {
+        global $pdo;
+        $sql = 'SELECT *
+                FROM posts
+                WHERE title = :title AND id_user = :id_user';
+        
+        $query = $pdo->prepare($sql);
+        $query->execute(['title' => $title, 'id_user' => $id_user]);
 
         $post = $query->fetch(PDO::FETCH_ASSOC);
         

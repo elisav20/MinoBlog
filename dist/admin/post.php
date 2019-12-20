@@ -1,7 +1,7 @@
 <?php
     $website_title = 'Post info';
     include_once 'blocks/header.php';
-    
+
     $post = get_post($_GET['id']);
     $category = get_category ($post["id_category"]);
     $author = get_author ($post["id_user"]);
@@ -11,7 +11,7 @@
 <div class="content">
     <div class="container">
         <div class="row">
-
+            <div class="statusMsg col-md-9"></div>
             <!-- .posts -->
             <section class="col-md-9 posts">
 
@@ -43,6 +43,22 @@
                                         echo $quantity . ' comments'
                                 ?>
                             </span>
+
+                            <?php 
+                                $id_user = add_userID($_COOKIE['login']);
+                                if($_COOKIE['login'] != '' && $post["id_user"] == $id_user): 
+                            ?>
+
+                            <span class="post__modify">
+                                <a class="delete_post" id="<?=$_GET['id']?>" href="#" title="Delete post"
+                                    onclick="return confirm('Do you want to delete?')"><i
+                                        class="far fa-trash-alt delete"></i></a>
+                                <a class="<?=$_GET['id']?>" id="edit_post" href="update_post.php?id=<?=$_GET['id']?>"
+                                    title="Edit post"><i class="far fa-edit edit"></i></a>
+                            </span>
+
+                            <?php endif; ?>
+
                             <div class="post__category">Posted in <a
                                     href="category.php?id=<?=$category["id_category"];?>"><?=$category["name"]; ?></a>
                             </div>

@@ -13,7 +13,8 @@
                         ?>
 
                          <div class="footer__recent-post__info">
-                             <a class="footer__recent-post__title" href="#"><?=$recent_post["title"]; ?></a>
+                             <a class="footer__recent-post__title"
+                                 href="post.php?id=<?=$recent_post["id"]; ?>"><?=$recent_post["title"]; ?></a>
                              <div class="footer__recent-post__date">
                                  <?=date("F j, Y",strtotime($recent_post["date"])); ?></div>
                          </div>
@@ -42,7 +43,8 @@
                                 $categories = get_categories ();
                                 foreach ($categories as $category):
                             ?>
-                             <a class="footer__categories-item rounded-pill" href="#"><?=$category["name"]; ?></a>
+                             <a class="footer__categories-item rounded-pill"
+                                 href="category.php?id=<?=$category["id_category"];?>"><?=$category["name"]; ?></a>
                              <?php endforeach; ?>
                          </div>
                      </div>

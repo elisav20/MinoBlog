@@ -148,6 +148,30 @@ $(document).ready(function(e) {
   });
 });
 
+$(".delete_post").click(function() {
+  var del_id = $(this).attr("id");
+
+  $.ajax({
+    type: "POST",
+    url: "ajax/delete_post.php",
+    data: { del_id: del_id },
+    dataType: "json",
+    success: function(response) {
+      $(".statusMsg").html("");
+      if (response.status == 1) {
+        $(".statusMsg").html(
+          '<p class="alert alert-success">' + response.message + "</p>"
+        );
+        $('.posts').hide();
+      } else {
+        $(".statusMsg").html(
+          '<p class="alert alert-danger">' + response.message + "</p>"
+        );
+      }
+    }
+  });
+});
+
 $(document).ready(function() {
   $(".moreBox")
     .slice(0, 5)
