@@ -82,14 +82,9 @@
 
                 <?php 
                     endforeach; 
-                    $count_posts = count_posts();
-                    if ($count_posts <= 5)
-                        $class_name = 'd-none';
-                    else
-                        $class_name = 'd-block';
                 ?>
 
-                <div class="text-center mb-3 <?=$class_name?>" id="loadMore">
+                <div class="text-center mb-3" id="loadMore">
                     <a class="btn btn-default" href="#">See More</a>
                 </div>
 

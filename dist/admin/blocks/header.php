@@ -61,11 +61,16 @@
                     </ul>
                     <form class="form-inline">
                         <div class="input-group md-form mt-0 mb-0 form-sm form-2">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control" type="text" name="post_search" id="post_search"
+                                placeholder="Search" aria-label="Search">
                             <div class="input-group-append">
-                                <span class="input-group-text rounded-right lighten-3" id="basic-text1"><i
-                                        class="fas fa-search text-grey" aria-hidden="true"></i></span>
+                                <span class="input-group-text rounded-right lighten-3">
+                                    <i class="fas fa-search text-grey" aria-hidden="true" id="search"></i>
+                                    <a href="#" id="close"><i class="fas fa-times"></i></a>
+                                </span>
                             </div>
+
+                            <div id="post_show"></div>
                     </form>
                 </div>
 

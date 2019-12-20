@@ -189,3 +189,27 @@ $(document).ready(function() {
     }
   });
 });
+
+$(document).ready(function(e){
+	$("#post_search").keyup(function(){
+		$("#post_show").show();
+    $("#close").hide();
+		var text = $(this).val();
+		$.ajax({
+			type: 'GET',
+			url: 'ajax/search.php',
+			data: 'txt=' + text,
+			success: function(data){
+				$("#post_show").html(data);
+        $("#search").hide();
+        $("#close").show();
+			}
+		});
+	})
+});
+
+$( "#close" ).click(function() {
+  $( this).hide();
+  $("#search").show();
+  $("#post_show").hide();
+});

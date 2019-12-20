@@ -79,20 +79,6 @@
         return $post;
     }
 
-    function get_post_toUpdate ($title, $id_user) {
-        global $pdo;
-        $sql = 'SELECT *
-                FROM posts
-                WHERE title = :title AND id_user = :id_user';
-        
-        $query = $pdo->prepare($sql);
-        $query->execute(['title' => $title, 'id_user' => $id_user]);
-
-        $post = $query->fetch(PDO::FETCH_ASSOC);
-        
-        return $post;
-    }
-
     function get_recent_posts () {
         global $pdo;
         $recent_posts = $pdo->query("SELECT * 

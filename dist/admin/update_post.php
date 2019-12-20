@@ -25,7 +25,7 @@
         }
     } 
                 
-    $uploadedFile = $_FILES["post_photo"]["value"]; 
+    $uploadedFile = $update_post['photo']; 
 
     if (!empty ($_FILES["post_photo"]["name"])) {
         $fileName = microtime() . '.' . basename($_FILES["post_photo"]["name"]);
@@ -93,8 +93,7 @@
 
                 <div class="form-group">
                     <div class="custom-file mb-3">
-                        <input type="file" class="custom-file-input" id="post_photo" name="post_photo"
-                            value="<?=$post["photo"]?>">
+                        <input type="file" class="custom-file-input" id="post_photo" name="post_photo">
                         <label class="custom-file-label" for="customFile">Post photo...</label>
                     </div>
                     <img src="assets/img/posts/<?=$post["photo"]?>" alt="thumbnail" class="img-fluid img-thumbnail mb-3"
