@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link href='https://fonts.googleapis.com/css?family=Dosis|Candal' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/img/icon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700&display=swap"
         rel="stylesheet">

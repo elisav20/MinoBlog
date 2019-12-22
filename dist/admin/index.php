@@ -86,8 +86,8 @@ if(!empty($_POST['username']) && !empty($_POST['pass'])){
                         <i class="fas fa-user-shield"></i> Admin Mino
                     </button>
                     <div class="dropdown-menu text-justify" aria-labelledby="dropdownMenuMenu">
-                        <a href="?module=posts&action=create" class="dropdown-item" type="button">Add New Post</a>
-                        <a href="?module=authorization&action=logout" class="dropdown-item" type="button">Logout</a>
+                        <a href="?module=posts&action=create" class="dropdown-item">Add New Post</a>
+                        <a href="?module=authorization&action=logout" class="dropdown-item">Logout</a>
                     </div>
                 </div>
             </div>
