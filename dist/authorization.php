@@ -79,7 +79,7 @@
                         <div class="alert alert-danger" id="reg_error"></div>
                         <div class="alert alert-success" id="reg_success">Success! Please Sign In!</div>
                         <div class="d-flex justify-content-center">
-                            <a class="btn btn-default" id="reg_user">Sign In</a>
+                            <a class="btn btn-default" id="reg_user">Sign Up</a>
                         </div>
                     </form>
                 </div>

@@ -1,10 +1,7 @@
 <?php
-    $website_title = 'Update Post';
-    include 'blocks/header.php';
-
-    $uploadDir = 'assets/img/posts/';
+    $uploadDir = '../assets/img/posts/';
     $update_post = get_post($_GET['id']);
-    $url_photo = 'assets/img/posts/' . $update_post['photo']; 
+    $url_photo = '../assets/img/posts/' . $update_post['photo']; 
  
     if(!empty($_POST['post_title']) && !empty($_POST['post_text'])){ 
 
@@ -70,7 +67,7 @@
         <div class="col-12">
 
             <?php
-                if($_COOKIE['login'] == ''):
+                if (!$_SESSION['isAdmin']):
             ?>
 
             <h1 class="text-center mb-3 vh-100">Please Sign In</h1>
@@ -96,8 +93,8 @@
                         <input type="file" class="custom-file-input" id="post_photo" name="post_photo">
                         <label class="custom-file-label" for="customFile">Post photo...</label>
                     </div>
-                    <img src="assets/img/posts/<?=$post["photo"]?>" alt="thumbnail" class="img-fluid img-thumbnail mb-3"
-                        style="width: 400px">
+                    <img src="../assets/img/posts/<?=$post["photo"]?>" alt="thumbnail"
+                        class="img-fluid img-thumbnail mb-3" style="width: 400px">
                 </div>
 
                 <div class="form-group">

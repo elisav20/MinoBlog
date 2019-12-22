@@ -53,8 +53,8 @@
                                 <a class="delete_post" id="<?=$_GET['id']?>" href="#" title="Delete post"
                                     onclick="return confirm('Do you want to delete?')"><i
                                         class="far fa-trash-alt delete"></i></a>
-                                <a class="<?=$_GET['id']?>" id="edit_post" href="update_post.php?id=<?=$_GET['id']?>"
-                                    title="Edit post"><i class="far fa-edit edit"></i></a>
+                                <a id="edit_post" href="update_post.php?id=<?=$_GET['id']?>" title="Edit post"><i
+                                        class="far fa-edit edit"></i></a>
                             </span>
 
                             <?php endif; ?>

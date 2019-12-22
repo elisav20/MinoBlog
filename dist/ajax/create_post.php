@@ -1,18 +1,18 @@
 <?php 
-include_once '../../db.php';
-$uploadDir = '../../assets/img/posts/'; 
+include_once '../db.php';
+$uploadDir = '../assets/img/posts/'; 
 $response = array( 
     'status' => 0, 
     'message' => 'Add post failed, please try again.' 
 ); 
-
+ 
 if(isset($_POST['post_title']) && isset($_POST['post_text'])){ 
 
     $title = trim(filter_var($_POST['post_title'], FILTER_SANITIZE_STRING)); 
     $text = trim($_POST['post_text']);
     $id_category = add_categoryID($_POST['category_name']);
-    $id_user = 1;
-    
+    $id_user = add_userID($_COOKIE['login']);
+     
     if(strlen($title) <= 3){ 
         $response['message'] = 'The title must be more than three characters'; 
         
@@ -48,11 +48,11 @@ if(isset($_POST['post_title']) && isset($_POST['post_text'])){
                 
             if($query){ 
                 $response['status'] = 1; 
-                $response['message'] = 'Post add successfully!' . $id_user;
+                $response['message'] = 'Post add successfully!';
                 move_uploaded_file($_FILES["post_photo"]["tmp_name"], $targetFilePath); 
             } 
         } 
     } 
 } 
-
+ 
 echo json_encode($response);

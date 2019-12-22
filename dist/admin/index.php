@@ -1,107 +1,102 @@
 <?php
-    $page = 'home';
-    $website_title = 'Home';
-    include_once 'blocks/header.php';
-    include_once 'blocks/intro.php';
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    include '../db.php'; 
+    
+    if(!$_SESSION['isAdmin'] && $_GET['module'] !== 'authorization'){
+        header('Location:?module=authorization&action=login');
+    }
+
+$username = 'admin';
+$pass = 'admin';
+
+if($_GET['module'] === 'authorization' && $_GET['action'] === 'logout'){
+    session_destroy();
+    header('Location:?module=authorization&action=login');
+}
+
+if(!empty($_POST['username']) && !empty($_POST['pass'])){
+    if(
+        $_POST['username'] === $username
+        &&
+        $_POST['pass'] === $pass
+    ){
+        $_SESSION['isAdmin'] = true;
+    } else {
+        $_SESSION['userAdmin'] = false;
+    }
+
+    if($_SESSION['isAdmin']){
+        header('Location:?module=default&action=main');
+    }
+}
+
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<!--content -->
-<div class="content mt-4">
-    <div class="container">
-        <div class="row">
+    <link rel="shortcut icon" href="../assets/img/icon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Dosis|Candal' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Open+Sans:400,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <title>Mino Admin Panel</title>
+</head>
 
-            <section class="col-md-9 posts">
+<body>
+    <?php
+        if ($_SESSION['isAdmin']) {
+            include 'blocks/header.php';
+        }
+    ?>
+    <!-- Content -->
+    <div id="content">
 
-                <?php
-                    $posts = get_all_posts ();
-                    foreach ($posts as $post):
-                ?>
+        <?php if ($_SESSION['isAdmin']): ?>
+        <header class="navbar navbar-default content__header">
+            <div class="container-fluid">
+                <a class="page-title" href="?module=default&action=main">
+                    <?php 
+                        if ($_GET['module'] == 'default')
+                            echo 'Dashboard';
+                        else if ($_GET['module'] == 'users')
+                            echo 'Users';
+                        else if ($_GET['module'] == 'posts')
+                            echo 'Posts';
+                        else if ($_GET['module'] == 'categories')
+                            echo 'Categories';
+                    ?>
+                </a>
 
-                <?php 
-                    $author = get_author ($post["id_user"]);
-                    $category = get_category ($post["id_category"]);
-                ?>
-                <div class="post postBox moreBox" style="display: none;">
-                    <div class="row">
-                        <div class="col-lg-5 col-xl-4">
-
-                            <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                                <img class="img-fluid" src="assets/img/posts/<?=$post['photo'];?>" alt="Sample image">
-
-                                <a href="post.php?id=<?=$post["id"]; ?>">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-7 col-xl-8 post__content">
-
-                            <a class="post__title" href="post.php?id=<?=$post["id"]; ?>"><?=$post["title"]; ?></a>
-
-                            <div class="post__info">
-                                <span class="post__date"><?=date("F j, Y",strtotime($post["date"])); ?></span>
-                                <a class="post__author" href="user_profile.php?id=<?=$post["id_user"]?>">
-                                    <?=$author["firstname"] . ' ' . $author["lastname"] ?>
-                                </a>
-                                <span class="post__comments-quantity">
-
-                                    <?php
-                                        $quantity = get_comments_quantity ($post["id"]);
-                                        if ($quantity == 0)
-                                            echo 'No comments';
-                                        else 
-                                            echo $quantity . ' comments'
-                                    ?>
-
-                                </span>
-                                <div class="post__category">Posted in <a
-                                        href="category.php?id=<?=$category["id_category"];?>"><?=$category["name"]; ?></a>
-                                </div>
-                            </div>
-
-                            <p class="post__text">
-                                <?php 
-                                    $text = $post["text"];
-                                    $text = strip_tags($text);
-                                    $text = substr($text, 0, 350);
-                                    $text = rtrim($text, "!,.-");
-                                    $text = substr($text, 0, strrpos($text, ' '));
-                                    echo $text."… "; 
-                                ?>
-                            </p>
-
-                            <a class="btn btn--black" href="post.php?id=<?=$post["id"]; ?>">Read More</a>
-
-                        </div>
+                <div class="dropdown admin">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuMenu" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-shield"></i> Admin Mino
+                    </button>
+                    <div class="dropdown-menu text-justify" aria-labelledby="dropdownMenuMenu">
+                        <a href="?module=posts&action=create" class="dropdown-item" type="button">Add New Post</a>
+                        <a href="?module=authorization&action=logout" class="dropdown-item" type="button">Logout</a>
                     </div>
-                    <!-- /.row -->
                 </div>
-                <!-- /.post -->
-
-                <?php 
-                    endforeach; 
-                ?>
-
-                <div class="text-center mb-3" id="loadMore">
-                    <a class="btn btn-default" href="#">See More</a>
-                </div>
-
-            </section>
-            <!-- /.posts -->
-
-            <?php
-                include_once 'blocks/aside.php'; 
-            ?>
-
+            </div>
+        </header>
+        <?php endif; ?>
+        <div class="container-fluid admin__content">
+            <? include 'modules/'.$_GET['module'].'/'.$_GET['action'].'.php';?>
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container -->
-</div>
-<!-- /.content -->
+    </div>
 
-<?php
-    include_once 'blocks/footer.php';
-?>
+    <?php include 'blocks/footer.php';?>
